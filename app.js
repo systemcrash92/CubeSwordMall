@@ -5,21 +5,12 @@ let UserInfo ={
 
 let Index=0;
 
+//arrays
+const items = [{skin:"Hipster cube",price:1000},{skin:"Ragnar Cube",price:1000},{skin:"Burgues Cube",price:1000}];
 
 
-class Skin{
 
-    constructor(precio,skinId,nombre){
-        this.precio = parseInt(precio);
-        this.skinId = parseInt(skinId);
-        this.nombre = toString(nombre);
-        this.vendido = false;
-
-    }
-    vender(){
-        this.vendido = true;
-    }
-}
+//clases
 
 class Coin{
 
@@ -48,33 +39,81 @@ class Coin{
 
   
 }
-    const CubeHipster = new Skin(1000,1,"Cube Hispter");
-    const CubeBurgues = new Skin(1000,2,"Burgues Cube");
-    const CubeRagnar = new Skin (1000,3,"Ragnar Cube");
+    //Herencias
     const MainCoin = new Coin(0.01,0,1000);
 
     //logica test
 
+    UserInfo.user=toString( prompt("ingrese su usuario"));
+    bCanbuyskins = false;
+    //Seccion compra de Coins
+
     while(!MainCoin.biScompraSucces){
 
-        UserInfo.user=toString( prompt("ingrese su usuario"));
+        
         MainCoin.cantidad = parseInt(prompt("Ingrese la cantidad de COINS que desea comprar"));
         MainCoin.Totalprecio();
-        prompt("El precio final es USD "+MainCoin.precioFinal,);
-        Index =parseInt( prompt("Inserte 1 parar comprar 0 para cancelar"));
+        alert("El precio final es USD "+MainCoin.precioFinal);
+        Index =parseInt( prompt("Inserte \n 1 - para comprar \n 0 - para cancelar"));
         switch(Index){
             case 1: MainCoin.Comprado();
-                    alert("Gracias por la compra el total de sus coins es de "+UserInfo.Coins);
-                    
+                    alert("Gracias por la compra! \n El total de sus coins es de "+UserInfo.Coins);
+                    bCanbuyskins= true;
                  break
-                case 2:alert("Vuelva pronto!");
-            break
-        }
+            case 0: alert("Vuelva pronto!");
+            MainCoin.biScompraSucces = true;
+             break }
+            
+    };    
+     // Seccion compra de Skins
+
+    while(bCanbuyskins){        
+        if(Index = 1){
+            const Skinsdisponibles =[];
+            items.forEach(element => {
+            Skinsdisponibles.push(element.skin,"\n")});
+            
+            const select = prompt("Las skins disponibles son: \n"+Skinsdisponibles+" Escriba el nombre de la skin que desea comprar").toLowerCase();
+            let value = 0;
+            let bItemFind = false;
+            items.forEach(element => {
+                if(select == element.skin.toLowerCase()){
+                    value = element.price;
+                    bItemFind = true;
+                }
+            });
+                if(UserInfo.Coins >= value & bItemFind){
+                   const comprastate= parseInt( prompt("Su valor es de "+ value+" Inserte:\n 1- para comprar\ 0- para cancelar"));
+                    switch(comprastate){            
+                        case 1:UserInfo.Coins= UserInfo.Coins - value;
+                            alert("Gracias por su compra! sus coins disponibles es de "+UserInfo.Coins)
+                            bCanbuyskins = false;
+                            break;
+                        case 2: alert("Vuelva pronto!");
+                                bCanbuyskins= false;
+                                break;     
+                    }
+                }else if (bItemFind) {
+                    alert("Lo sentimos su saldo de Coins es insuficiente para esta compra, intente nuevamente!")
+                    break
+                } else {
+                    
+                    alert("No existe ningun skin con el nombre "+select+" intente nuevamente");
+                }
+                    
+                
+
+            
+
+
+            };
+            
+
+          };      
+       
+
+       
         
 
-
-
-
-
-    }
+    
   
