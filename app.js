@@ -50,7 +50,7 @@ class Coin{
 
     while(!MainCoin.biScompraSucces){
 
-        
+        // el usuario primero debe comprar coins para poder adquirir skins
         MainCoin.cantidad = parseInt(prompt("Ingrese la cantidad de COINS que desea comprar"));
         MainCoin.Totalprecio();
         alert("El precio final es USD "+MainCoin.precioFinal);
@@ -71,17 +71,18 @@ class Coin{
         if(Index = 1){
             const Skinsdisponibles =[];
             items.forEach(element => {
-            Skinsdisponibles.push(element.skin,"\n")});
+            Skinsdisponibles.push(element.skin,"\n")});// agrego las skins disponibles en un array
             
-            const select = prompt("Las skins disponibles son: \n"+Skinsdisponibles+" Escriba el nombre de la skin que desea comprar").toLowerCase();
-            let value = 0;
+            const select = prompt("Las skins disponibles son: \n"+Skinsdisponibles+" Escriba el nombre de la skin que desea comprar").toLowerCase();// muestro las skins disponibles
+            let value = 0; 
             let bItemFind = false;
             items.forEach(element => {
-                if(select == element.skin.toLowerCase()){
+                if(select == element.skin.toLowerCase()){// agrego el precio de la skin sellecionada
                     value = element.price;
                     bItemFind = true;
                 }
             });
+                // consulto si su saldo es suficiente para comprar la skin o si el item que escribio fue el correcto
                 if(UserInfo.Coins >= value & bItemFind){
                    const comprastate= parseInt( prompt("Su valor es de "+ value+" Inserte:\n 1- para comprar\ 0- para cancelar"));
                     switch(comprastate){            
