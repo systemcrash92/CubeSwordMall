@@ -6,9 +6,20 @@
 }
 body{
     background-color: black;
+
 }
 
 /* Intro Style css*/
+.header2{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  
+    
+    
+}
+
 
 .intro-container{
   width: 100%;
@@ -41,16 +52,39 @@ body{
     background: rgb(83, 115, 2);
     background: linear-gradient(265deg, rgb(186, 255, 12) 0%, rgba(4, 255, 130, 0.953) 100%);
 }
+.btn-mall:hover{
+    transform: scale(1.1);
+}
+.btn-mall:active{
+    transform: translateY(4px);
+}
+.btn-coin:active{
+    transform: translateY(4px);
+}
+
+
+
 
 /*  Mall style*/
 
 .container-mall{
     width: 100%;
-    height: 100vh;
+   
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    padding: 10%;
+   
+
+    
 }
+/*  Animation*/
+@keyframes initAnim {
+    0%   {transform: scale(0); opacity: 0;}
+    100% {transform: scale(1);opacity: 100;}
+  }
+  /* card style*/
 .card{
     background-color: rgb(29, 29, 29);
     width: 280px;
@@ -59,15 +93,16 @@ body{
     border: 3px solid rgb(105, 105, 105);
     border-radius: 8px;
     text-align: center;
+    animation-name: initAnim;
+    animation-duration:0.5s;
 }
 .card h2{
     color: aliceblue;
 }
 .card-image{
-    background-color: aqua;
+    
     height: 280px;
-    margin-bottom: 8px;
-    border-radius: 8px;
+    width: 100%;
 }
 
 .card-price{
@@ -99,18 +134,66 @@ body{
     display: inline-block;
     text-decoration: none;
 }
-/*Cards Images*/
+.btn-mall{
+    background: rgb(87, 119, 4);
+    background: linear-gradient(265deg, rgb(29, 29, 29) 0%, rgba(145, 196, 13, 0.953) 100%);
+    border-radius: 8px;    
+    color: white;
+    padding: 10px 50px;
+    text-align: center;
+    font-size: 40px;
+    display: inline-block;
+    cursor: pointer;
+    
+    
 
-.card-1{
-    background-image: url(./images/Asset1.png);
-    background-position: center;
 }
-.card-2{
-    background-image: url(./images/Asset2.png);
-    background-position: center;
-}
-.card-3{
-    background-image: url(./images/Asset3.png);
-    background-position: center;
-}
+/*  Coin Mall Section*/
+.card-coin{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
    
+
+}
+.Coin-Price button{
+    background: rgb(87, 119, 4);
+    background: linear-gradient(265deg, rgb(228, 235, 22) 0%, rgb(208, 88, 2) 100%);
+    border-radius: 8px;    
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+    font-size: 40px;
+    display: inline-block;
+    cursor: pointer;
+}
+.Coin-Price input{
+    height: 30px;
+    border: 3px solid #555;
+    background-color: black;
+}
+.Coin-Price input, select, textarea{
+    color: #ffffff;
+    font-size: 25px;
+}
+.Coin-Price h1{
+    color: rgb(6, 163, 40);
+    font-size: 25PX;
+    padding: 3%;
+}
+.Coin-Price p {
+    color: rgb(218, 15, 15);
+    padding: 3%;
+    font-size: 25px;
+}
+.UserInfo{
+    width: 20%;
+   
+    height: 50px;
+}
+
+.UserInfo h1 {
+    color: aliceblue;
+    font-size: 50px;
+}
