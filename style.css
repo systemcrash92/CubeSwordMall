@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Roboto+Mono:wght@300&family=VT323&display=swap');
 *{margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
     font-family: 'VT323', monospace;
 }
 body{
@@ -10,16 +12,6 @@ body{
 }
 
 /* Intro Style css*/
-.header2{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  
-    
-    
-}
-
 
 .intro-container{
   width: 100%;
@@ -29,29 +21,64 @@ body{
   align-items: center;
 }
 .intro-container img{
-  width: 30rem;
-  height: 450px;
+  width: 20rem;
+  height: 350px;
   padding-top: 15px;
 }
-.intro-container a{
+.login-container{
+    width: 300px;
+    height: 350px;
+    border: 2px solid  rgba(63, 151, 55, 0.953);
+    border-radius: 20px;
+    display: flex;
+    justify-content: stretch;
+    flex-direction: column;
+    padding: 3%;
+    
+
+}
+.login-container input{
+    width:100%;
+    height: 35px;
+    margin-top: 10%;
+    font-size: 20px;
+    background-color: black;
+    border: 2px solid rgba(63, 151, 55, 0.953) ;
+    border-radius: 10px;
+    text-align: center;
+    color: #ffffff;
+}
+.login-container h2 {
+    color: aliceblue;
+    text-align: center;
+}
+.checkbox-div{
+    width: 220px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+.checkbox-div input{
+    width: 20px;
+}
+.checkbox-div p {
+    color: aliceblue;
+    padding-top: 9%;
+    padding-left: 2%;
+}
+.btn-enter{
+    width: 100%;
+    height: 50px;
+    border-radius: 20px;
+    margin-top: 15%;
     background: rgb(87, 119, 4);
     background: linear-gradient(265deg, rgba(143,195,6,1) 0%, rgba(4,198,101,0.9528186274509804) 100%);
-    border-radius: 8px;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    font-size: 25px;
-    display: inline-block;
-    text-decoration: none;
+    font-size: 25PX;
+    color: aliceblue;
+    text-shadow: 3px 3px 5px  black;
+    cursor: pointer;
 }
-.btn-intro:hover{
-    background: rgb(83, 115, 2);
-    background: linear-gradient(265deg, rgba(102, 140, 6, 0.735) 0%, rgba(1, 143, 72, 0.953) 100%);
-}
-.btn-intro:active{
-    background: rgb(83, 115, 2);
-    background: linear-gradient(265deg, rgb(186, 255, 12) 0%, rgba(4, 255, 130, 0.953) 100%);
-}
+
 .btn-mall:hover{
     transform: scale(1.1);
 }
@@ -65,19 +92,86 @@ body{
 
 
 
-/*  Mall style*/
+/*  Mall style header login*/
+.header2{
+    width: 100%;
+    display: flex;
+    height: 120px;
+    justify-content: end;   
+    align-items: center;
+    
+}
+.userinfo-container{
+    width: 200px;
+    height: 100px;    
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 4%;
+    padding: 4;
+
+}
+.userinfo-container h1{
+    color: aliceblue;
+    font-size: 20px;
+}
+
+
+.userinfo-container button{
+    width: 50%;
+    height: 30px;
+    border-radius: 10px;
+    background: rgb(87, 119, 4);
+    background: linear-gradient(265deg, rgba(143,195,6,1) 0%, rgba(4,198,101,0.9528186274509804) 100%);
+    font-size: 25PX;
+    color: aliceblue;
+    text-shadow: 3px 3px 5px  black;
+    cursor: pointer;
+}
+#btn-logout:active { transform: translateY(4px);}
+   
+
+/*  Mall style body*/
+.container-coin{
+    display: flex;
+    padding: 2%;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-image: url('./images/CubeSword.png');
+    background-attachment: fixed;
+    background-position: 0px;
+    background-repeat: no-repeat;    
+}
+.guide-coins{
+    color: aliceblue;
+    font-size: 100px;
+    font-family: 'Bungee', cursive;
+    text-shadow: 3px 4px 2px rgba(0, 0, 0, 0.953);
+}
+model-viewer{
+    width: 500px;
+    height: 800px;
+}
 
 .container-mall{
     width: 100%;
-   
     display: flex;
     justify-content: center;
     align-items: stretch;
     flex-wrap: wrap;
-    padding: 10%;
-   
-
+}
+.skin-section-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2%;
     
+   
 }
 /*  Animation*/
 @keyframes initAnim {
@@ -94,7 +188,8 @@ body{
     border-radius: 8px;
     text-align: center;
     animation-name: initAnim;
-    animation-duration:0.5s;
+    animation-duration:1s;
+    margin-top: 2%;
 }
 .card h2{
     color: aliceblue;
@@ -137,50 +232,80 @@ body{
 .btn-mall{
     background: rgb(87, 119, 4);
     background: linear-gradient(265deg, rgb(29, 29, 29) 0%, rgba(145, 196, 13, 0.953) 100%);
-    border-radius: 8px;    
+    border-radius: 4px;    
     color: white;
-    padding: 10px 50px;
+    padding: 20px 120px;
     text-align: center;
     font-size: 40px;
     display: inline-block;
     cursor: pointer;
+    text-shadow: 2px 2px 2px black;
+
     
     
 
 }
 /*  Coin Mall Section*/
 .card-coin{
-    width: 40%;
+    width: 400px;
     display: flex;
-    justify-content: center;
+    justify-content: stretch;
     align-items: center;
+    flex-direction: column;
+    border: 5px solid  rgba(180, 177, 177, 0.953);
+    height: 600px;
+    background: rgb(87, 119, 4);
+    background: linear-gradient(265deg, rgba(119, 5, 147, 0.468) 0%, rgba(21, 0, 18, 0.953) 100%);
+    border-radius: 10px;
+    box-shadow: 3px 5px 3px black;
+    
    
 
 }
+.card-coin img{
+    width: 80%;
+    
+
+}
+.Coin-Price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 .Coin-Price button{
     background: rgb(87, 119, 4);
-    background: linear-gradient(265deg, rgb(228, 235, 22) 0%, rgb(208, 88, 2) 100%);
-    border-radius: 8px;    
+    background: linear-gradient(265deg, rgba(143,195,6,1) 0%, rgba(4,198,101,0.9528186274509804) 100%);
+    border-radius: 8px;  
+    border:none;  
     color: white;
-    padding: 5px 20px;
+    padding: 15px 40px;
     text-align: center;
-    font-size: 40px;
+    font-size: 30px;
     display: inline-block;
     cursor: pointer;
+    box-shadow: 3px 3px 5px  black;
+    text-shadow:3px 3px 5px  black ;
+    margin-top: 4%;
 }
 .Coin-Price input{
-    height: 30px;
-    border: 3px solid #555;
-    background-color: black;
+    height: 40px;
+    border: 3px solid rgba(23, 87, 3, 0.374);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 3px 3px 5px  black;;
+    border-radius: 2px;
+    margin-bottom: 5%;
 }
 .Coin-Price input, select, textarea{
-    color: #ffffff;
+    color: #000000;
     font-size: 25px;
+    text-align: center;
 }
 .Coin-Price h1{
-    color: rgb(6, 163, 40);
-    font-size: 25PX;
+    color: rgb(255, 255, 255);
+    font-size: 40PX;
     padding: 3%;
+    text-shadow: 3px 3px 5px  black;
 }
 .Coin-Price p {
     color: rgb(218, 15, 15);

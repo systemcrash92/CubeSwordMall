@@ -1,12 +1,17 @@
-let UserInfo = {
-    user: "",
-    Coins: 0,
+
+//init login 
+let UserInfo = JSON.parse(localStorage.getItem('user'));
+let DisplayLogin = document.getElementById('Username-display')
+DisplayLogin.innerHTML= UserInfo.email;
+let btnlogout = document.getElementById('btn-logout')
+let UsercoinDisplay = document.getElementById('coins-display')
+
+btnlogout.addEventListener('click',logout);
+
+function logout(){
+    window.location = "index.html";
 }
-let UserCoin = document.getElementById('user-coin');
 
-
-
-let Index = 0;
 
 //arrays
 const items = [
@@ -29,6 +34,54 @@ const items = [
         price: 1000,
         img: './images/Asset3.png',
         id: 3
+    },
+    {
+        skin: "Cube Magic",
+        price: 1200,
+        img: './images/Asset4.png',
+        id: 4
+    },
+    {
+        skin: "Popular Cube men",
+        price: 1000,
+        img: './images/Asset5.png',
+        id: 5
+    },
+    {
+        skin: "Shelby Cube",
+        price: 1500,
+        img: './images/Asset6.png',
+        id: 6
+    },
+    {
+        skin: "Princess Cube",
+        price: 1000,
+        img: './images/Asset7.png',
+        id: 7
+    },
+    {
+        skin: "Popular Cube woman",
+        price: 1000,
+        img: './images/Asset8.png',
+        id: 8
+    },
+    {
+        skin: "Firefighter Cube",
+        price: 1200,
+        img: './images/Asset9.png',
+        id: 9
+    },
+    {
+        skin: "Assassin Cube",
+        price: 1500,
+        img: './images/Asset10.png',
+        id: 10
+    },
+    {
+        skin: "Hero Cube",
+        price: 1500,
+        img: './images/Asset11.png',
+        id: 11
     }
 ];
 
@@ -62,6 +115,7 @@ class Coin {
 
 
 }
+
 let containerCard = document.getElementById('containermall')
 //Herencias
 const MainCoin = new Coin(0.01);
@@ -76,6 +130,7 @@ function check(){
         RenderCards(items);
         bSelect = false;
     }
+    containerCard.scrollIntoView({block: "end", behavior: "smooth"});
 }
 
 
@@ -112,12 +167,17 @@ const RenderCards = (array) => {
     let InputCoin = document.getElementById('inputValue')
     let TextValue = document.getElementById('totalTEXT');
     InputCoin.oninput= ()=>{
-        //console.log(InputCoin.value)
-        MainCoin.Totalprecio( InputCoin.value);
-        console.log(MainCoin.precioFinal)
-        TextValue.innerHTML="TOTAL USD "+MainCoin.precioFinal;
-        
-        
+
+        if(!isNaN(InputCoin.value) ){
+            MainCoin.Totalprecio( InputCoin.value);
+            TextValue.textContent="USD "+MainCoin.precioFinal;
+
+        }else{
+             InputCoin.value= '';
+             TextValue.textContent="USD 0";
+        }
+       
+       
     
     }
     

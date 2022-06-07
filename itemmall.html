@@ -8,29 +8,47 @@
     <title>Document</title>
 </head>
 <header class="header2">
-    <div class ="UserInfo">
-        <h1 class ="user-coin">User Coin : 0</h1>
-    </div>
-    <div class="card-coin">
-        <img src="./images/coin.png" alt="">
-        <div class="Coin-Price">
-            <input id="inputValue" placeholder="Inserte Coins" type="text">
-            <h1 id="totalTEXT">TOTAL USD 0</h1>
-            <button id="btn-coinComprar" class="btn-coin" type="button">COMPRAR</button>
-            <p id="ErrorMSG"></p>
-            
-        </div>
-    </div>
-    <button class="btn-mall" id="btn-SkinsID" type="button">Skins</button>
+    <div class="userinfo-container">
+        <h1 id="Username-display"></h1>
+        
+        <h1>Coins:</h1>
+        <h1 id="coins-display">0</h1>
+        <button id="btn-logout">log out</button>
+       
+        
+
+
+     </div>    
+
+    
 </header>
 
 <body>
+    <div class="container-coin">
+        <div class="card-coin">
+            <img src="./images/coin.png" alt="">
+            <div class="Coin-Price">
+                <input id="inputValue" placeholder="Insert Coins" type="text">
+                <h1 id="totalTEXT">USD 0</h1>
+                <button id="btn-coinComprar" class="btn-coin" type="button">BUY NOW</button>
+                <p id="ErrorMSG"></p>
+            </div>
+        </div>
+        <model-viewer src="assets/NormalCube.glb"   enable-pan auto-rotate shadow-intensity="3" camera-controls autoplay alt="ISLE CUBESWORD"> </model-viewer>
+        <h1 class="guide-coins">GET CUBECOINS<br> TO BUY SKINS!</h1>
+    </div>
+    <div class="skin-section-btn">
+        <button class="btn-mall" id="btn-SkinsID" type="button">SKINS</button>
+    </div>
+     
     <div class="container-mall" id="containermall">
-       
+     
+        
      
        
     </div>
     
     <script src="app.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </body>
 </html>
