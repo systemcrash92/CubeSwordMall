@@ -1,0 +1,89 @@
+*{margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+    font-family: 'VT323', monospace;
+}
+body{
+    background-color: black;
+
+}
+.container-card{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    width: 500px;
+    height: 700px;
+    border: 2px solid  rgba(63, 151, 55, 0.953);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.card img{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10%;
+    border-radius: 10%;
+}
+.cardandname{
+width: 400px;
+height: 45px;
+
+}
+input{
+   
+    font-size: 23px;
+    background-color: black;
+    border: 2px solid rgba(63, 151, 55, 0.953) ;
+    border-radius: 10px;
+    text-align: center;
+    color: #ffffff;
+    margin: 3%;
+}
+.text-cardnumber{
+    color: aliceblue;
+    
+}
+.Year-Code{
+    width: 70px;
+    height: 45px;
+}
+.YearCode h2{
+    color: aliceblue;
+
+}
+.YearCode{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    
+}
+.text-yearcode{
+    width: 100%;
+    display: flex;
+    color: aliceblue;
+    justify-content: space-around;
+    font-size: 15px;
+}
+button{
+    width: 400px;
+    height: 60px;
+    border-radius: 10px;
+    background: rgb(87, 119, 4);
+    background: linear-gradient(265deg, rgba(143,195,6,1) 0%, rgba(4,198,101,0.9528186274509804) 100%);
+    font-size: 25PX;
+    color: aliceblue;
+    text-shadow: 3px 3px 5px  black;
+    cursor: pointer;
+    margin-top: 2%;
+}
+
+
+
+

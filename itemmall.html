@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>Document</title>
 </head>
 <header class="header2">
@@ -17,7 +18,7 @@
        
         
 
-
+        
      </div>    
 
     
@@ -28,9 +29,9 @@
         <div class="card-coin">
             <img src="./images/coin.png" alt="">
             <div class="Coin-Price">
-                <input id="inputValue" placeholder="Insert Coins" type="text">
+                <input id="inputValue" placeholder="Insert Coins" type="text" maxlength="7">
                 <h1 id="totalTEXT">USD 0</h1>
-                <button id="btn-coinComprar" class="btn-coin" type="button">BUY NOW</button>
+                <button id="btn-coinComprar" class="btn-coin" type="button" >BUY NOW</button>
                 <p id="ErrorMSG"></p>
             </div>
         </div>
@@ -47,8 +48,10 @@
      
        
     </div>
-    
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="app.js"></script>
+    
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </body>
 </html>

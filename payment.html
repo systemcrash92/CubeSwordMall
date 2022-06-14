@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cardstyle.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class =" container-card">
+        
+        <div class="card">
+            <img src="" alt="logo" id="card_logo">
+            <h2 class="text-cardnumber">Card number</h2>
+            <input type="text" name="Card Number" id="card_number" placeholder="1234 5678 7777 1992" class="cardandname ">
+            <h2 class="text-cardnumber">Name on card</h2>
+            <input type="text" name="Name on card" id="card_name" placeholder="Ex. Jhon Wick" class="cardandname ">
+            <div class="text-yearcode">
+                <h2>Expiry Date</h2>
+                <h2>Security code</h2>
+            </div>
+            <div class="YearCode">
+                <input type="text" maxlength="5" id="Date_Year" placeholder="00/00"  class="Year-Code">
+                <input type="text" maxlength="3" id="Date_Code" class="Year-Code" placeholder="123" > 
+            </div>
+            <button type="submit" id="Send_card">SEND</button>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./creditcard.js"></script>
+</body>
+</html>

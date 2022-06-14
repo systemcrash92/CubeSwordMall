@@ -2,13 +2,53 @@
 //init login 
 let UserInfo = JSON.parse(localStorage.getItem('user'));
 let DisplayLogin = document.getElementById('Username-display')
-DisplayLogin.innerHTML= UserInfo.email;
+DisplayLogin.innerHTML = UserInfo.email;
 let btnlogout = document.getElementById('btn-logout')
 let UsercoinDisplay = document.getElementById('coins-display')
+UsercoinDisplay.innerHTML = UserInfo.Coins;
+//toast
+function ShowNews() {
+    if (parseInt(UserInfo.Coins) > 0) {
+        Toastify({
 
-btnlogout.addEventListener('click',logout);
+            text: `you have ${UserInfo.Coins} Coins to spend, open the shop!`,
 
-function logout(){
+            duration: 7000,
+            gravity: "bottom", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            style: {
+                background: "linear-gradient(to right, #00b09b, #96c93d)",
+                width: "300px",
+
+            },
+            onClick: function () {
+                RenderCards(items);
+                bSelect = false;
+                containerCard.scrollIntoView({ block: "end", behavior: "smooth" });
+            },
+            offset: {
+                x: 50,
+                y: 50
+            },
+
+
+
+        }).showToast();
+
+    }
+
+}
+setTimeout(ShowNews, 5000);
+
+
+
+
+
+
+
+btnlogout.addEventListener('click', logout);
+
+function logout() {
     window.location = "index.html";
 }
 
@@ -22,7 +62,7 @@ const items = [
         id: 1
     }
     ,
-     {
+    {
         skin: "Burgues Cube",
         price: 1000,
         img: './images/Asset2.png',
@@ -99,7 +139,7 @@ class Coin {
     }
 
     Totalprecio(cantidad) {
-       this.precio = this.standarValue;
+        this.precio = this.standarValue;
         this.precio = this.precio * cantidad;
         this.precioFinal = this.precio
         //this.precioFinal = this.precioFinal - this.precio;
@@ -124,17 +164,17 @@ const MainCoin = new Coin(0.01);
 const buttonSkins = document.getElementById('btn-SkinsID')
 //buttons events
 bSelect = true;
-function check(){
-    if(bSelect){
-        
+function check() {
+    if (bSelect) {
+
         RenderCards(items);
         bSelect = false;
     }
-    containerCard.scrollIntoView({block: "end", behavior: "smooth"});
+    containerCard.scrollIntoView({ block: "end", behavior: "smooth" });
 }
 
 
-buttonSkins.addEventListener('click',check);
+buttonSkins.addEventListener('click', check);
 
 
 
@@ -143,53 +183,84 @@ buttonSkins.addEventListener('click',check);
 
 
 const RenderCards = (array) => {
-    for (const element of array) {
+    if (bSelect) {
+        for (const element of array) {
 
-        let card = document.createElement('div')
-        card.className ="card";
-        card.innerHTML=`
-            <img src="${element.img}" class="card-image" alt="">
-            <h2>${element.skin}</h2>
-            <div class="card-price">
-            <div class="coin"></div>
-                <p> ${element.price}</p>
-                <a href="#">COMPRAR</a>
-            </div>  `
-        
+            let card = document.createElement('div')
+            card.className = "card";
+            card.innerHTML = `
+                <img src="${element.img}" class="card-image" alt="">
+                <h2>${element.skin}</h2>
+                <div class="card-price">
+                <div class="coin"></div>
+                    <p> ${element.price}</p>
+                    <button  type="button"  id="btn-buyskins">BUY</button>
+                </div>  `
 
-        containerCard.appendChild(card);  
+
+
+            containerCard.appendChild(card);
         }
 
     }
-    // COIN SECTION
+    // pendiente activar botones de las cards
 
-    let MSGerror = "";
-    let InputCoin = document.getElementById('inputValue')
-    let TextValue = document.getElementById('totalTEXT');
-    InputCoin.oninput= ()=>{
 
-        if(!isNaN(InputCoin.value) ){
-            MainCoin.Totalprecio( InputCoin.value);
-            TextValue.textContent="USD "+MainCoin.precioFinal;
 
-        }else{
-             InputCoin.value= '';
-             TextValue.textContent="USD 0";
-        }
-       
-       
-    
+
+}
+
+// COIN SECTION
+
+let MSGerror = "";
+let InputCoin = document.getElementById('inputValue')
+let TextValue = document.getElementById('totalTEXT');
+let buttonBuy = document.getElementById('btn-coinComprar')
+let amountCoin = {
+    coinamount: 0
+}
+// functions
+InputCoin.oninput = () => {
+
+    if (!isNaN(InputCoin.value)) {
+        MainCoin.Totalprecio(InputCoin.value);
+        TextValue.textContent = "USD " + MainCoin.precioFinal;
+
+    } else {
+        InputCoin.value = '';
+        TextValue.textContent = "USD 0";
     }
-    
-    
- 
-      
-   
-    
+}
 
-    
+buttonBuy.addEventListener('click', TargetSection);
 
-    
+function TargetSection() {
+    if (InputCoin.value != "") {
+        amountCoin.coinamount = InputCoin.value;
+        localStorage.setItem('amount', JSON.stringify(amountCoin))
+        window.location = "payment.html";
+
+    } else {
+        Swal.fire('Please insert amount')
+    }
+
+
+}
+
+
+    //
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
