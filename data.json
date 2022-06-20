@@ -1,0 +1,72 @@
+{
+    "items" : [
+        {
+            "skin": "Hipster cube",
+            "price": 1000,
+            "img": "./images/Asset1.png",
+            "id": 1
+        }
+        ,
+        {
+            "skin": "Burgues Cube",
+            "price": 1000,
+            "img": "./images/Asset2.png",
+            "id": 2
+        }
+        ,
+        {
+            "skin": "Ragnar Cube",
+            "price": 1000,
+            "img": "./images/Asset3.png",
+            "id": 3
+        },
+        {
+            "skin": "Cube Magic",
+            "price": 1200,
+            "img": "./images/Asset4.png",
+            "id": 4
+        },
+        {
+            "skin": "Popular Cube men",
+            "price": 1000,
+            "img": "./images/Asset5.png",
+            "id": 5
+        },
+        {
+            "skin": "Shelby Cube",
+            "price": 1500,
+            "img": "./images/Asset6.png",
+            "id": 6
+        },
+        {
+            "skin": "Princess Cube",
+            "price": 1000,
+            "img": "./images/Asset7.png",
+            "id": 7
+        },
+        {
+            "skin": "Popular Cube woman",
+            "price": 1000,
+            "img": "./images/Asset8.png",
+            "id": 8
+        },
+        {
+            "skin": "Firefighter Cube",
+            "price": 1200,
+            "img": "./images/Asset9.png",
+            "id": 9
+        },
+        {
+            "skin": "Assassin Cube",
+            "price": 1500,
+            "img": "./images/Asset10.png",
+            "id": 10
+        },
+        {
+            "skin": "Hero Cube",
+            "price": 1500,
+            "img": "./images/Asset11.png",
+            "id": 11
+        }
+    ]
+}

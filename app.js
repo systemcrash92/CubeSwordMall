@@ -6,6 +6,17 @@ DisplayLogin.innerHTML = UserInfo.email;
 let btnlogout = document.getElementById('btn-logout')
 let UsercoinDisplay = document.getElementById('coins-display')
 UsercoinDisplay.innerHTML = UserInfo.Coins;
+
+//peticion a JSON
+let articulos = [];
+fetch('./data.json')
+    .then(function (resp) {
+
+        return resp.json()
+    })
+    .then(function (data) {
+        articulos = data.items
+    })
 //toast
 function ShowNews() {
     if (parseInt(UserInfo.Coins) > 0) {
@@ -14,15 +25,15 @@ function ShowNews() {
             text: `you have ${UserInfo.Coins} Coins to spend, open the shop!`,
 
             duration: 7000,
-            gravity: "bottom", // `top` or `bottom`
-            position: "right", // `left`, `center` or `right`
+            gravity: "bottom",
+            position: "right",
             style: {
                 background: "linear-gradient(to right, #00b09b, #96c93d)",
                 width: "300px",
 
             },
             onClick: function () {
-                RenderCards(items);
+                RenderCards(articulos);
                 bSelect = false;
                 containerCard.scrollIntoView({ block: "end", behavior: "smooth" });
             },
@@ -51,80 +62,6 @@ btnlogout.addEventListener('click', logout);
 function logout() {
     window.location = "index.html";
 }
-
-
-//arrays
-const items = [
-    {
-        skin: "Hipster cube",
-        price: 1000,
-        img: './images/Asset1.png',
-        id: 1
-    }
-    ,
-    {
-        skin: "Burgues Cube",
-        price: 1000,
-        img: './images/Asset2.png',
-        id: 2
-    }
-    ,
-    {
-        skin: "Ragnar Cube",
-        price: 1000,
-        img: './images/Asset3.png',
-        id: 3
-    },
-    {
-        skin: "Cube Magic",
-        price: 1200,
-        img: './images/Asset4.png',
-        id: 4
-    },
-    {
-        skin: "Popular Cube men",
-        price: 1000,
-        img: './images/Asset5.png',
-        id: 5
-    },
-    {
-        skin: "Shelby Cube",
-        price: 1500,
-        img: './images/Asset6.png',
-        id: 6
-    },
-    {
-        skin: "Princess Cube",
-        price: 1000,
-        img: './images/Asset7.png',
-        id: 7
-    },
-    {
-        skin: "Popular Cube woman",
-        price: 1000,
-        img: './images/Asset8.png',
-        id: 8
-    },
-    {
-        skin: "Firefighter Cube",
-        price: 1200,
-        img: './images/Asset9.png',
-        id: 9
-    },
-    {
-        skin: "Assassin Cube",
-        price: 1500,
-        img: './images/Asset10.png',
-        id: 10
-    },
-    {
-        skin: "Hero Cube",
-        price: 1500,
-        img: './images/Asset11.png',
-        id: 11
-    }
-];
-
 
 
 //clases
@@ -164,13 +101,15 @@ const MainCoin = new Coin(0.01);
 const buttonSkins = document.getElementById('btn-SkinsID')
 //buttons events
 bSelect = true;
+
 function check() {
     if (bSelect) {
 
-        RenderCards(items);
-        bSelect = false;
+        RenderCards(articulos)
+        containerCard.scrollIntoView({ block: "end", behavior: "smooth" });
+
     }
-    containerCard.scrollIntoView({ block: "end", behavior: "smooth" });
+
 }
 
 
@@ -182,8 +121,11 @@ buttonSkins.addEventListener('click', check);
 //Dynamic mall
 
 
+
+
 const RenderCards = (array) => {
     if (bSelect) {
+
         for (const element of array) {
 
             let card = document.createElement('div')
@@ -194,16 +136,56 @@ const RenderCards = (array) => {
                 <div class="card-price">
                 <div class="coin"></div>
                     <p> ${element.price}</p>
-                    <button  type="button"  id="btn-buyskins">BUY</button>
+                    <button  type="button" class= "btn-Buycard"   id="${element.id}">BUY</button>
                 </div>  `
-
-
 
             containerCard.appendChild(card);
         }
+        //agrego los botones a un array por la clase
+        btnBuycard = document.getElementsByClassName('btn-Buycard')
+        // asigno eventos a cada boton
+        for (const element of btnBuycard) {
+            element.addEventListener('click', () => {
 
+
+                const IDcard = element.id;
+                const busqueda = articulos.find(element => element.id == IDcard)
+                if (UserInfo.Coins > busqueda.price) {
+
+                    Swal.fire({
+                        title: `sure you want to buy "${busqueda.skin}" for ${busqueda.price} coins?`,
+                        showDenyButton: true,
+                        confirmButtonText: 'Yes',
+                        denyButtonText: 'No',
+                    }).then((result) => {
+
+                        if (result.isConfirmed) {
+
+                            Swal.fire('Congrats!')
+                            let data1 = parseInt(UserInfo.Coins) - busqueda.price;
+                            UserInfo.Coins = data1;
+                            localStorage.setItem("user", JSON.stringify(UserInfo));
+                            UsercoinDisplay.innerHTML = UserInfo.Coins;
+
+                        }
+
+                    })
+
+
+                } else {
+
+                    Swal.fire('you don t have enough coins to buy this skin')
+
+                }
+
+
+
+
+            })
+
+        }
     }
-    // pendiente activar botones de las cards
+   
 
 
 
@@ -248,7 +230,7 @@ function TargetSection() {
 }
 
 
-    //
+    
 
 
 
