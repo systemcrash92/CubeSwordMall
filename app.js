@@ -100,13 +100,14 @@ const MainCoin = new Coin(0.01);
 //buttons
 const buttonSkins = document.getElementById('btn-SkinsID')
 //buttons events
-bSelect = true;
+let bSelect = true;
 
 function check() {
     if (bSelect) {
 
         RenderCards(articulos)
         containerCard.scrollIntoView({ block: "end", behavior: "smooth" });
+        bSelect= false;
 
     }
 

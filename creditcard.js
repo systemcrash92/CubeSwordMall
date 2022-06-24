@@ -53,7 +53,10 @@ buttonSend.addEventListener('click',(event)=>{
     }).then((result)=>{
         if (result.isConfirmed) {
             localStorage.setItem('CreditcardData', JSON.stringify(data))
+            window.location= "itemmall.html";
 
+        }else{
+            window.location= "itemmall.html";
         }
     })
 
@@ -64,5 +67,5 @@ buttonSend.addEventListener('click',(event)=>{
     dataStorage.Coins = data1;
     
     localStorage.setItem("user", JSON.stringify(dataStorage));
-    window.location= "itemmall.html";
+    
 })
