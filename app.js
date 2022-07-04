@@ -151,7 +151,7 @@ const RenderCards = (array) => {
 
                 const IDcard = element.id;
                 const busqueda = articulos.find(element => element.id == IDcard)
-                if (UserInfo.Coins > busqueda.price) {
+                if (UserInfo.Coins >= busqueda.price) {
 
                     Swal.fire({
                         title: `sure you want to buy "${busqueda.skin}" for ${busqueda.price} coins?`,
